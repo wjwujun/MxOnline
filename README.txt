@@ -1,0 +1,21 @@
+E:\Python\MxOnline>pip list
+DEPRECATION: The default format will switch to columns in the future. You can use --format=(legacy|columns) (or define a format=(legacy|columns) in your pip.conf under the [list] section) to disable this warning.
+appdirs (1.4.3)
+Django (1.11.1)
+django-crispy-forms (1.6.1)
+django-formtools (2.0)
+django-pure-pagination (0.3.0)
+django-simple-captcha (0.5.5)
+future (0.16.0)
+httplib2 (0.10.3)
+olefile (0.44)
+packaging (16.8)
+Pillow (4.1.1)
+pip (9.0.1)
+PyMySQL (0.7.11)
+pyparsing (2.2.0)
+pytz (2017.2)
+setuptools (35.0.2)
+six (1.10.0)
+virtualenv (15.1.0)
+E:\Python\MxOnline>
