@@ -1,10 +1,13 @@
-from django.shortcuts import render
+from django.shortcuts import render,HttpResponse
+from django.http import JsonResponse
 from   django.views.generic import  View
 
 from .models import CourseOrg,CityDicrt
 
 from django.shortcuts import render_to_response
 from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
+from .form import UserAskForm
+from  courses.models import Courses
 
 # Create your views here.
 
@@ -61,4 +64,57 @@ class OrgView(View):
             'hot_orgs':hot_orgs,
             'sort':sort,
         })
+
+class AddUserAskView(View):
+    def post(self,request):
+        userask_form=UserAskForm(request.POST)
+        if userask_form.is_valid():
+            user_ask=userask_form.save(commit=True)
+            return JsonResponse({'status': 'success'})
+        else:
+            return JsonResponse({'status': 'fail','msg':'添加错误'})
+
+class OrgHomeView(View):
+    def get(self,request,org_id):
+        course_org=CourseOrg.objects.get(id=int(org_id))
+        all_course=course_org.courses_set.all()[:3]    #courses_set反射，通过外键可以反射，获取所有课程
+        all_teacher=course_org.teacher_set.all()[:1]    #teacher_set，通过外键可以反射，获取所有教师
+        return  render(request,'org-detail-homepage.html',{
+            'all_course':all_course,
+            'all_teacher':all_teacher
+        })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
