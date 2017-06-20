@@ -5,7 +5,7 @@
     <section>
         <div class="wp">
             <ul  class="crumbs">
-                <li><a href="index.html">首页</a>></li>
+                <li><a href="{% url 'index' %}">首页</a>></li>
                 <li>课程机构列表</li>
             </ul>
         </div>
@@ -63,7 +63,7 @@
                 {% for course_org in all_orgs.object_list %}
                       <dl class="des difdes">
                             <dt>
-                                <a href="#">
+                                <a href="{% url 'org:org_home' course_org.id %}">
                                     <img width="200" height="120" class="scrollLoading" data-url="/media/{{ course_org.image }}" src=""/>
                                 </a>
                             </dt>

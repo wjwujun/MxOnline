@@ -37,7 +37,7 @@
             <img class="fl" style="width: 112px;height: 103px" src="../media/org/2016/11/imooc.png"/>
             <div class="head fl">
                 <h1>
-                    慕课网
+                    自学网
                     <img src="/static/images/authentication.png"/>
                     <img src="/static/images/gold.png"/>
                 </h1>
@@ -60,8 +60,8 @@
 <section>
 	<div class="wp">
 		<ul  class="crumbs">
-            <li><a href="index.html">首页</a>></li>
-			<li><a href="org-list.html">课程机构</a>></li>
+            <li><a href="{% url 'index' %}">首页</a>></li>
+			<li><a href="{%   url 'org:org_list' %}">课程机构</a>></li>
 			<li>{% block page_path %} 机构首页 {% endblock %}</li>
 		</ul>
 	</div>
