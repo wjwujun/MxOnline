@@ -83,6 +83,11 @@ class OrgHomeView(View):
             'all_course':all_course,
             'all_teacher':all_teacher
         })
+class OrgCourseView(View):
+    def get(self,request):
+        return render(request,'org-detail-course.html',{})
+
+
 
 
 
