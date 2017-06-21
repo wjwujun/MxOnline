@@ -34,7 +34,7 @@
 
     <div class="middle companyheader">
         <div class="wp">
-            <img class="fl" style="width: 112px;height: 103px" src="../media/org/2016/11/imooc.png"/>
+            <img class="fl" style="width: 112px;height: 103px" src="/static/images/user.jpg"/>
             <div class="head fl">
                 <h1>
                     自学网
@@ -71,10 +71,10 @@
 	<div class="wp list personal_list comp">
 		<div class="left">
 			<ul>
-				<li class="active2"><a href="{% url 'org:org_home' %}">机构首页</a></li>
-                <li class=""><a href="{%  url 'org:org_course' %}">机构课程</a></li>
-                <li class=""><a href="org-detail-desc.html">机构介绍</a></li>
-                <li class=""><a href="org-detail-teachers.html">机构讲师</a></li>
+				<li class="{% ifequal  click 'home' %} active2{% endifequal %}"><a href="{% url 'org:org_home' course_org.id %}">机构首页</a></li>
+                <li class="{% ifequal  click 'courese' %} active2{% endifequal %}"><a href="{%  url 'org:org_course' course_org.id %}">机构课程</a></li>
+                <li class="{% ifequal  click 'desc' %} active2{% endifequal %}"><a href="{% url 'org:org_desc' course_org.id %}">机构介绍</a></li>
+                <li class="{% ifequal  click 'teacher' %} active2{% endifequal %}"><a href="{% url 'org:org_teacher' course_org.id %}">机构讲师</a></li>
 			</ul>
 		</div>
         {% block right_form %}

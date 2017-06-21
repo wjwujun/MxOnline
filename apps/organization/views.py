@@ -76,21 +76,56 @@ class AddUserAskView(View):
 
 class OrgHomeView(View):
     def get(self,request,org_id):
+        click = 'home'
         course_org=CourseOrg.objects.get(id=int(org_id))
         all_course=course_org.courses_set.all()[:3]    #courses_set反射，通过外键可以反射，获取所有课程
         all_teacher=course_org.teacher_set.all()[:1]    #teacher_set，通过外键可以反射，获取所有教师
         return  render(request,'org-detail-homepage.html',{
             'all_course':all_course,
-            'all_teacher':all_teacher
+            'all_teacher':all_teacher,
+            'course_org':course_org,
+            'click': click
         })
+
 class OrgCourseView(View):
-    def get(self,request):
-        return render(request,'org-detail-course.html',{})
+    def get(self,request,org_id):
+        click='courese'
+        course_org = CourseOrg.objects.get(id=int(org_id))
+        all_course = course_org.courses_set.all()[:3]
+        all_teacher = course_org.teacher_set.all()[:1]
+        return render(request,'org-detail-course.html',{
+            'all_course': all_course,
+            'all_teacher': all_teacher,
+            'course_org': course_org,
+            'click':click
+        })
+
+class OrgDescView(View):
+    def get(self, request, org_id):
+        click = 'desc'
+        course_org = CourseOrg.objects.get(id=int(org_id))
+        all_course = course_org.courses_set.all()[:3]
+        all_teacher = course_org.teacher_set.all()[:1]
+        return render(request, 'org-detail-desc.html', {
+            'all_course': all_course,
+            'all_teacher': all_teacher,
+            'course_org': course_org,
+            'click': click
+        })
 
 
-
-
-
+class OrgTeacherView(View):
+    def get(self, request, org_id):
+        click = 'teacher'
+        course_org = CourseOrg.objects.get(id=int(org_id))
+        all_course = course_org.courses_set.all()[:3]
+        all_teacher = course_org.teacher_set.all()[:1]
+        return render(request, 'org-detail-teachers.html', {
+            'all_course': all_course,
+            'all_teacher': all_teacher,
+            'course_org': course_org,
+            'click': click
+        })
 
 
 
