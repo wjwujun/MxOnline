@@ -22,7 +22,7 @@ urlpatterns = [
 
 
     url(r'^list/', CourseListView.as_view(), name="course_list"),
-    url(r'^detaile/(?P<course_id>\d+)/', CourseListView.as_view(), name="course_detaile"),
+    url(r'^detaile/(?P<course_id>\d+)/', CourseDetaileView.as_view(), name="course_detaile"),
 
 
 
