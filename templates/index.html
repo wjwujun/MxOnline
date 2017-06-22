@@ -19,39 +19,39 @@
     <header>
 		<div  class=" header">
 
- 		    	<div class="top">
-                    <div class="wp">
-                        <div class="fl"><p>服务电话：<b>33333333</b></p></div>
-                        <!--登录后跳转-->
-                         {%  if request.user.is_authenticated %}
-                              <div class="personal">
-                                    <dl class="user fr">
-                                        <dd>aaaaaaa<img class="down fr" src="/static/images/top_down.png"/></dd>
-                                        <dt><img width="20" height="20" src="/static/media/image/2016/12/default_big_14.png"/></dt>
+            <div class="top">
+                <div class="wp">
+                    <div class="fl"><p>服务电话：<b>33333333</b></p></div>
+                    <!--登录后跳转-->
+                     {%  if request.user.is_authenticated %}
+                          <div class="personal">
+                                <dl class="user fr">
+                                    <dd>aaaaaaa<img class="down fr" src="/static/images/top_down.png"/></dd>
+                                    <dt><img width="20" height="20" src="/static/media/image/2016/12/default_big_14.png"/></dt>
+                                </dl>
+
+                                <div class="userdetail">
+                                    <dl>
+                                        <dt><img width="80" height="80" src="/static/media/image/2016/12/default_big_14.png"/></dt>
+                                        <dd>
+                                            <h2>django</h2>
+                                            <p>bobby</p>
+                                        </dd>
                                     </dl>
 
-                                    <div class="userdetail">
-                                        <dl>
-                                            <dt><img width="80" height="80" src="/static/media/image/2016/12/default_big_14.png"/></dt>
-                                            <dd>
-                                                <h2>django</h2>
-                                                <p>bobby</p>
-                                            </dd>
-                                        </dl>
-
-                                        <div class="btn">
-                                            <a class="personcenter fl" href="usercenter-info.html">进入个人中心</a>
-                                            <a class="fr" href="/logout/">退出</a>
-                                        </div>
+                                    <div class="btn">
+                                        <a class="personcenter fl" href="usercenter-info.html">进入个人中心</a>
+                                        <a class="fr" href="/logout/">退出</a>
                                     </div>
-                            </div>
-                          {% else %}
-                                <a style="color:white" class="fr registerbtn" href="/register/">注册</a>
-                                <a style="color:white" class="fr loginbtn" href="/login/">登录</a>
-                          {% endif %}
+                                </div>
+                        </div>
+                      {% else %}
+                            <a style="color:white" class="fr registerbtn" href="/register/">注册</a>
+                            <a style="color:white" class="fr loginbtn" href="/login/">登录</a>
+                      {% endif %}
 
-                    </div>
-			    </div>
+                </div>
+            </div>
 
 
 
@@ -82,7 +82,7 @@
 						<ul>
 							<li class="active" ><a href="index.html">首页</a></li>
 							<li >
-								<a href="course-list.html">
+								<a href="{% url 'course:course_list' %}">
 									公开课<img class="hot" src="/static/images/nav_hot.png">
 								</a>
 							</li>
@@ -103,52 +103,49 @@
 
 
     <div class="banner">
-			<div class="wp">
-				<div class="fl">
-					<div class="imgslide">
-						<ul class="imgs">
-                            
-                            <li>
-                                    <a href="http://www.imooc.com">
-                                        <img width="1200" height="478" src="/static/media/banner/2016/11/57a801860001c34b12000460.jpg" />
-                                    </a>
-                                </li>
-                            
-                            <li>
-                                    <a href="http://www.projectsedu.com">
-                                        <img width="1200" height="478" src="/static/media/banner/2016/11/57aa86a0000145c512000460.jpg" />
-                                    </a>
-                                </li>
-                            
-                            <li>
-                                    <a href="http://www.projectsedu.com">
-                                        <img width="1200" height="478" src="/static/media/banner/2016/11/57a801860001c34b12000460_z4Vb8zl.jpg" />
-                                    </a>
-                                </li>
-                            
-                            <li>
-                                    <a href="http://www.projectsedu.com">
-                                        <img width="1200" height="478" src="/static/media/banner/2016/11/57aa86a0000145c512000460_nMwvoQD.jpg" />
-                                    </a>
-                                </li>
-                            
-                            <li>
-                                    <a href="http://www.projectsedu.com">
-                                        <img width="1200" height="478" src="/static/media/banner/2016/11/57aa86a0000145c512000460_GXIBATC.jpg" />
-                                    </a>
-                                </li>
-                            
+        <div class="wp">
+        <div class="fl">
+            <div class="imgslide">
+                <ul class="imgs">
 
-						</ul>
-					</div>
-					<div class="unslider-arrow prev"></div>
-					<div class="unslider-arrow next"></div>
-				</div>
+                    <li>
+                            <a href="http://www.imooc.com">
+                                <img width="1200" height="478" src="/static/media/banner/2016/11/57a801860001c34b12000460.jpg" />
+                            </a>
+                        </li>
 
-				</div>
+                    <li>
+                            <a href="http://www.projectsedu.com">
+                                <img width="1200" height="478" src="/static/media/banner/2016/11/57aa86a0000145c512000460.jpg" />
+                            </a>
+                        </li>
+
+                    <li>
+                            <a href="http://www.projectsedu.com">
+                                <img width="1200" height="478" src="/static/media/banner/2016/11/57a801860001c34b12000460_z4Vb8zl.jpg" />
+                            </a>
+                        </li>
+
+                    <li>
+                            <a href="http://www.projectsedu.com">
+                                <img width="1200" height="478" src="/static/media/banner/2016/11/57aa86a0000145c512000460_nMwvoQD.jpg" />
+                            </a>
+                        </li>
+
+                    <li>
+                            <a href="http://www.projectsedu.com">
+                                <img width="1200" height="478" src="/static/media/banner/2016/11/57aa86a0000145c512000460_GXIBATC.jpg" />
+                            </a>
+                        </li>
 
 
-			</div>
+                </ul>
+            </div>
+            <div class="unslider-arrow prev"></div>
+            <div class="unslider-arrow next"></div>
+        </div>
+        </div>
+    </div>
 <!--banner end-->
 <!--feature start-->
 	<section>
