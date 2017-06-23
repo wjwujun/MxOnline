@@ -38,7 +38,6 @@ class CourseListView(View):
 class CourseDetaileView(View):
     def get(self, request,course_id):
         course=Courses.objects.get(id=course_id)
-
         return  render(request,'course-detail.html',{
             'course':course
         })

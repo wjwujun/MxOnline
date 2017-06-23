@@ -44,6 +44,7 @@ class  UserMessage(models.Model):
             verbose_name = "用户消息"
             verbose_name_plural = verbose_name
 
+
 class UserCourese(models.Model):
         user=models.ForeignKey(UserProfile,verbose_name="用户")
         course=models.ForeignKey(Courses,verbose_name="课程")
@@ -52,6 +53,5 @@ class UserCourese(models.Model):
         class Meta:
             verbose_name = "用户课程"
             verbose_name_plural = verbose_name
-
 
 
