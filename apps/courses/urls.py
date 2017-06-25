@@ -15,14 +15,19 @@ Including another URLconf
 """
 from django.conf.urls import url,include
 
-from .views import CourseListView,CourseDetaileView
+from .views import CourseListView,CourseDetaileView,CourseInfoView
 
 
 urlpatterns = [
 
-
+    #课程列表页
     url(r'^list/', CourseListView.as_view(), name="course_list"),
+
+    #课程详情页
     url(r'^detaile/(?P<course_id>\d+)/', CourseDetaileView.as_view(), name="course_detaile"),
+
+    #
+    url(r'^info/(?P<course_id>\d+)/', CourseInfoView.as_view(), name="course_video"),
 
 
 

@@ -16,17 +16,23 @@ class Courses(models.Model):
     click_num=models.IntegerField(default=0,verbose_name="点击数")
     add_time=models.DateTimeField(default=datetime.now,verbose_name="添加时间")
     category=models.CharField(default='web后台',verbose_name="课程类型",max_length=300)
-
+    tag=models.CharField(default='',verbose_name="课程标签",max_length=10)
     class Meta:
         verbose_name="课程"
         verbose_name_plural=verbose_name
+    #获取教师人数
+    def get_teacher_num(self):
+        return self.get_teacher_num().all()[:1]
     #课程章节数
     def get_lession_num(self):
         return self.lession_set.all().count()
+    #获取课程章节
+    def get_course_lession(self):
+        return self.lession_set.all()
 
     #学习用户
     def get_learn_num(self):
-        return self.usercourese_set.all()
+        return self.usercourese_set.all()[:5]
 
     def __str__(self):
          return  self.name
@@ -39,7 +45,8 @@ class Lession(models.Model):
         class Meta:
             verbose_name = "章节"
             verbose_name_plural = verbose_name
-
+        def get_lession_video(self):
+            return self.video_set.all()
         def __str__(self):
             return self.name
 
@@ -47,8 +54,9 @@ class Lession(models.Model):
 class video(models.Model):
     lession = models.ForeignKey(Lession, verbose_name="章节")
     name = models.CharField(max_length=100, verbose_name="视屏名")
+    url=models.CharField(default='http://baidu.com',max_length=200,verbose_name="访问地址")
+    learn_time=models.IntegerField(default=0,verbose_name="学习时长(分钟数)")
     add_time = models.DateTimeField(default=datetime.now, verbose_name="添加时间")
-
 
     class Meta:
         verbose_name = "视屏"
