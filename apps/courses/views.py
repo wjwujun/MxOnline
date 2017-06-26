@@ -60,7 +60,9 @@ class CourseInfoView(View):
     def get(self, request,course_id):
         course=Courses.objects.get(id=course_id)
 
+        #相关资源
         all_recourse=CourseResource.objects.filter(courses=course)
+
         return  render(request,'course-video.html',{
             'course':course,
             'all_recourse':all_recourse

@@ -57,7 +57,8 @@
 			</div>
     </header>
 </section>
-<section>
+{% block wp %}
+    <section>
 	<div class="wp">
 		<ul  class="crumbs">
             <li><a href="{% url 'index' %}">首页</a>></li>
@@ -66,6 +67,8 @@
 		</ul>
 	</div>
 </section>
+{% endblock %}
+
 
 <section>
 	<div class="wp list personal_list comp">

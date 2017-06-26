@@ -26,6 +26,8 @@ class Courses(models.Model):
     #课程章节数
     def get_lession_num(self):
         return self.lession_set.all().count()
+
+
     #获取课程章节
     def get_course_lession(self):
         return self.lession_set.all()
@@ -45,8 +47,12 @@ class Lession(models.Model):
         class Meta:
             verbose_name = "章节"
             verbose_name_plural = verbose_name
+
+        #获取所有视频资源
         def get_lession_video(self):
             return self.video_set.all()
+
+
         def __str__(self):
             return self.name
 
